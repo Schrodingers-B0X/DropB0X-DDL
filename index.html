@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Convert Dropbox APK share links into Downloader/AFTV-friendly direct URLs in your browser.">
+  <meta name="theme-color" content="#0b1220">
+  <title>Dropbox to Downloader Link Converter</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Static GitHub Pages tool</p>
+        <h1 id="page-title">Dropbox → Downloader Link Converter</h1>
+        <p class="lead">
+          Paste the original Dropbox share link for your APK. This page converts it into a direct-style URL you can paste into <strong>aftv.news</strong> to create a Downloader shortcode.
+        </p>
+      </div>
+      <a class="small-link" href="https://aftv.news" target="_blank" rel="noopener noreferrer">Open aftv.news</a>
+    </section>
+
+    <section class="card converter" aria-labelledby="converter-title">
+      <div class="card-head">
+        <div>
+          <h2 id="converter-title">Create the correct URL</h2>
+          <p>Works fully in your browser. No server, no PHP, no API key, no link storage.</p>
+        </div>
+        <span class="pill">APK friendly</span>
+      </div>
+
+      <form id="converterForm" novalidate>
+        <label for="dropboxLink">Original Dropbox link</label>
+        <textarea id="dropboxLink" name="dropboxLink" rows="4" spellcheck="false" autocomplete="off" placeholder="https://www.dropbox.com/scl/fi/.../example.apk?rlkey=...&st=...&dl=0"></textarea>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">Create correct URL</button>
+          <button class="btn" type="button" id="pasteBtn">Paste</button>
+          <button class="btn" type="button" id="clearBtn">Clear</button>
+          <label class="debug-toggle" for="debugToggle">
+            <input type="checkbox" id="debugToggle">
+            Debug
+          </label>
+        </div>
+      </form>
+
+      <div class="result" id="resultBox" hidden role="status" aria-live="polite">
+        <div class="result-head">
+          <div>
+            <p class="result-kicker" id="resultKicker">Result</p>
+            <h3 id="resultTitle">Converted</h3>
+          </div>
+          <span class="badge" id="resultBadge">Ready</span>
+        </div>
+
+        <p class="message" id="resultMessage"></p>
+
+        <div class="output-wrap" id="outputWrap" hidden>
+          <label for="convertedLink">Converted / ready URL</label>
+          <textarea id="convertedLink" rows="3" readonly spellcheck="false"></textarea>
+          <div class="actions compact">
+            <button class="btn primary" type="button" id="copyBtn">Copy URL</button>
+            <a class="btn" id="openAftvBtn" href="https://aftv.news" target="_blank" rel="noopener noreferrer">Open aftv.news</a>
+          </div>
+        </div>
+
+        <pre class="debug-box" id="debugBox" hidden></pre>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="info-card">
+        <h2>What it does</h2>
+        <p>For modern Dropbox Basic share links, it swaps <code>www.dropbox.com</code> to <code>dl.dropboxusercontent.com</code> and keeps only the required <code>rlkey</code> query value.</p>
+        <div class="example">
+          <p class="label">Before</p>
+          <code>https://www.dropbox.com/scl/fi/.../example.apk?rlkey=KEY&amp;st=RANDOM&amp;dl=0</code>
+        </div>
+        <div class="example good">
+          <p class="label">After</p>
+          <code>https://dl.dropboxusercontent.com/scl/fi/.../example.apk?rlkey=KEY</code>
+        </div>
+      </article>
+
+      <article class="info-card">
+        <h2>Downloader shortcode steps</h2>
+        <ol>
+          <li>Upload your APK to Dropbox Basic.</li>
+          <li>Copy the original Dropbox share link.</li>
+          <li>Paste it into this converter and copy the corrected URL.</li>
+          <li>Open <strong>aftv.news</strong>, paste the corrected URL, complete the CAPTCHA, then shorten it.</li>
+        </ol>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p>This is a static browser tool. It does not upload or save your Dropbox links.</p>
+    </footer>
+  </main>
+
+  <noscript>
+    <div class="noscript">JavaScript is required because this static GitHub Pages version performs the conversion in your browser.</div>
+  </noscript>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
