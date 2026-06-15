@@ -2,11 +2,9 @@
 
 A lightweight static web app that converts Dropbox APK share links into direct-style links suitable for creating Downloader shortcodes through [aftv.news](https://aftv.news).
 
-This project is designed for **GitHub Pages**. It does not need PHP, a backend server, an API key, or database storage. The conversion runs entirely in the visitor's browser.
-
 ## What problem this solves
 
-Dropbox Basic share links often look like this:
+Shared Dropbox links have changed their URL queries over the years and they don't work as DDL's (direct download links) due to them showing a landing page with a "Download" button. Modifying the share link to be a DDL, is a workaround so no landing page is shown and it directly downloads... i.e. is a DDL. Just one example but newer Dropbox links typically look like this:
 
 ```text
 https://www.dropbox.com/scl/fi/pb82uozxt9witiq2njybf/example.apk?rlkey=idba0011ck5r6gfdgfqijf7ty43g&st=randomkey&dl=0
@@ -61,68 +59,6 @@ The browser JavaScript follows this order:
 └── README.md
 ```
 
-## Deploying to GitHub Pages
-
-### 1. Create the repository
-
-Create a new GitHub repository, for example:
-
-```text
-dropbox-downloader-link-converter
-```
-
-Public repositories work with GitHub Pages on free GitHub accounts.
-
-### 2. Upload the project files
-
-Upload everything in this folder to the **root** of your GitHub repository.
-
-Make sure the repository root contains:
-
-```text
-index.html
-assets/
-.github/workflows/pages.yml
-```
-
-### 3. Enable GitHub Pages through Actions
-
-In your GitHub repository:
-
-1. Go to **Settings**.
-2. Go to **Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Save the setting if GitHub asks you to.
-
-### 4. Trigger deployment
-
-Push to the `main` branch, or open the **Actions** tab and manually run:
-
-```text
-Deploy static site to GitHub Pages
-```
-
-The workflow will:
-
-1. Check the JavaScript syntax.
-2. Run the converter tests.
-3. Package the static files.
-4. Deploy the site to GitHub Pages.
-
-### 5. Open your site
-
-After the workflow completes, your site will usually be available at:
-
-```text
-https://YOUR-GITHUB-USERNAME.github.io/REPOSITORY-NAME/
-```
-
-For example:
-
-```text
-https://thecat.github.io/dropbox-downloader-link-converter/
-```
-
 ## Using the converter
 
 1. Create or log into a Dropbox Basic account.
@@ -162,8 +98,8 @@ node tests/converter.test.cjs
 
 ## Privacy
 
-This tool is static. It does not send Dropbox links to a backend server. The only external site linked from the UI is `aftv.news`, which you open separately to create a Downloader shortcode.
+This tool does not send Dropbox links to a backend server. The only external site linked from the UI is `aftv.news`, which you open separately to create a Downloader shortcode.
 
 ## Notes
 
-This project is not affiliated with Dropbox, Amazon, AFTVnews, or the Downloader app.
+This project is not affiliated with Dropbox, AFTVnews, or the Downloader app.
