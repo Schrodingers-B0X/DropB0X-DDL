@@ -1,4 +1,4 @@
-# Dropbox to Downloader Link Converter
+# Dropbox to DDL Converter
 
 A lightweight static web app that converts Dropbox APK share links into direct-style links suitable for creating Downloader shortcodes through [aftv.news](https://aftv.news).
 
